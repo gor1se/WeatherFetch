@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+   <meta charset='UTF-8'>
+   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+   <link rel='stylesheet' href=''>
+   <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <form action="/" method="post">
+        <label for="country">Wählen Sie ein Land aus:</label>
+        <select id="country" name="country">
+            <option value="-">Wählen Sie</option>
+        <% Object.keys(options).forEach(option => { %>
+             <option value=<%=option%>><%=option%></option>
+       <% }) %>
+        </select>
+        <label for="city">Wählen Sie eine Stadt aus:</label>
+        <select id="city" name="city">
+            <option value="-">Wählen Sie</option>
+        </select>
+        <button type="submit">Anzeigen</button>
+    </form>
+    </header>
+    <div id="data">
+      <%  if(data){ %>
+            <table>
+                <tr>
+                  <th>Country</th>
+                  <th>City</th>
+                  <th>Temperature</th>
+                  <th>Humidity</th>
+                  <th>Windspeed</th>
+                </tr>
+                <tr>
+                  <td><%= data.nameOfCountry %></td>
+                  <td><%= data.nameOfCity %></td>
+                  <td><%= data.avgTemp %></td>
+                  <td><%= data.avgHumidity %></td>
+                  <td><%= data.avgWindSpeed %></td>
+                </tr>
+            </table>
+      <%  } %>
+            
+    </div>
+   Servus
+   <script src='/js/select.js'></script>
+</body>
+
+</html>
